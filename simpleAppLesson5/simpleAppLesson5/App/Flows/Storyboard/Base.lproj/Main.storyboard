@@ -17,11 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="fromStartToCollection" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw0-ge-hxq">
+                            <button opaque="NO" contentMode="scaleToFill" restorationIdentifier="startButton" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw0-ge-hxq">
                                 <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="9Fr-6R-mV2"/>
-                                    <constraint firstAttribute="width" constant="200" id="lQC-K2-mU2"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="4O0-YL-7kE"/>
+                                    <constraint firstAttribute="height" constant="200" id="Tjd-Ur-POp"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -39,6 +39,10 @@
                                     </attributedString>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="startButtonTaped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OZN-W2-dx1"/>
+                                    <segue destination="w4j-TI-nLe" kind="show" identifier="fromStartToCollection" id="ueQ-hN-6d7"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -48,6 +52,9 @@
                             <constraint firstItem="Jw0-ge-hxq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="tSJ-ro-tj5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startButton" destination="Jw0-ge-hxq" id="JKm-Xo-mG5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,7 +65,7 @@
             <objects>
                 <collectionViewController id="w4j-TI-nLe" customClass="AppCollectionViewController" customModule="simpleAppLesson5" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fTZ-lg-8vW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="uxp-kv-54i">
@@ -68,7 +75,7 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="0gN-Y2-fAs">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0gN-Y2-fAs">
                                 <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ubg-90-l4K">
@@ -82,6 +89,7 @@
                             <outlet property="delegate" destination="w4j-TI-nLe" id="j1F-kB-nv6"/>
                         </connections>
                     </collectionView>
+                    <navigationItem key="navigationItem" id="Sa5-cn-5Lc"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xhw-gH-MOV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+protocol Networkable {
+    func fetch() -> [ResponseModel]
+}
